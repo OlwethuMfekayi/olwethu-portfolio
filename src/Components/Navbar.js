@@ -2,19 +2,28 @@ import React, { useState, useEffect } from 'react';
 import { Link, useLocation } from 'react-router-dom';
 import { motion } from 'framer-motion';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faBars, faTimes } from '@fortawesome/free-solid-svg-icons';
+import {
+  faBars,
+  faTimes,
+  faHome,
+  faUser,
+  faGraduationCap,
+  faBriefcase,
+  faLaptopCode,
+  faEnvelope
+} from '@fortawesome/free-solid-svg-icons';
 
 const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
   const location = useLocation();
 
   const navItems = [
-    { path: '/', label: 'Home' },
-    { path: '/about', label: 'About' },
-    { path: '/education', label: 'Education' },
-    { path: '/experience', label: 'Experience' },
-    { path: '/skills', label: 'Skills' },
-    { path: '/contact', label: 'Contact' }
+    { path: '/', label: 'Home', icon: faHome },
+    { path: '/about', label: 'About', icon: faUser },
+    { path: '/education', label: 'Education', icon: faGraduationCap },
+    { path: '/experience', label: 'Experience', icon: faBriefcase },
+    { path: '/skills', label: 'Skills', icon: faLaptopCode },
+    { path: '/contact', label: 'Contact', icon: faEnvelope }
   ];
 
   const isActive = (path) => location.pathname === path;
@@ -28,7 +37,7 @@ const Navbar = () => {
 
   return (
     <>
-      <nav className="bg-white/80 backdrop-blur-md shadow-lg fixed w-full z-50">
+      <nav className="bg-white/80 backdrop-blur-md shadow-lg fixed top-0 w-full z-50">
         <div className="max-w-6xl mx-auto px-4">
           <div className="flex justify-between items-center h-16">
             {/* Desktop Menu */}
@@ -72,28 +81,27 @@ const Navbar = () => {
 
         {/* Mobile Menu */}
         <motion.div
-          initial={{ opacity: 0, y: -20 }}
-          animate={isOpen ? { opacity: 1, y: 0 } : { opacity: 0, y: -20 }}
+          initial={{ height: 0, opacity: 0 }}
+          animate={isOpen ? { height: 'auto', opacity: 1 } : { height: 0, opacity: 0 }}
           transition={{ duration: 0.3 }}
-          className={`md:hidden fixed top-16 left-0 w-full h-screen bg-white z-40 overflow-y-auto shadow-md transition-all duration-300 ${
-            isOpen ? 'block' : 'hidden'
-          }`}
+          className={`md:hidden absolute top-16 left-0 w-full bg-white shadow-md z-40 overflow-hidden`}
         >
-          <div className="px-4 py-4 space-y-2">
+          <div className="px-4 py-4 flex justify-around">
             {navItems.map((item) => (
               <motion.div
                 key={item.path}
-                whileHover={{ scale: 1.05, color: "#ff7f50" }}
+                whileHover={{ scale: 1.1, color: "#ff7f50" }}
                 whileTap={{ scale: 0.95, color: "#ff4500" }}
+                className="flex flex-col items-center"
               >
                 <Link
                   to={item.path}
-                  className={`block py-2 text-lg font-medium transition-all duration-300 ${
+                  className={`text-xl transition-colors duration-300 ${
                     isActive(item.path) ? 'text-primary' : 'text-gray-600'
                   }`}
                   onClick={() => setIsOpen(false)}
                 >
-                  {item.label}
+                  <FontAwesomeIcon icon={item.icon} />
                 </Link>
               </motion.div>
             ))}
@@ -103,12 +111,14 @@ const Navbar = () => {
 
       {/* Page Content Wrapper */}
       <div className="pt-16">
-        {/* Your page content (like <Routes /> or <Outlet />) */}
+        {/* Content goes here */}
       </div>
     </>
   );
 };
 
 export default Navbar;
+
+
 
 
