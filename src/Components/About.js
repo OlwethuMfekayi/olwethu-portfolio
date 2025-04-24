@@ -18,7 +18,7 @@ const About = () => {
         >
           <div className="md:w-1/3">
             <motion.img
-              src="/omfekayi.jpg"
+              src="/omfekayi.JPG"
               alt="Olwethu Mfekayi"
               className="rounded-full w-64 h-64 object-cover border-4 border-pink-500 shadow-lg"
               whileHover={{ scale: 1.05 }}

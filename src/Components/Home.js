@@ -38,11 +38,11 @@ const Home = () => {
               className="inline-block bg-blue-100 text-gray-800 px-4 py-2 rounded-full shadow-sm font-medium"
               whileHover={{ scale: 1.05 }}
             >
-              👋 Welcome to my world
+              👋 Welcome to my personal portfolio
             </motion.div>
 
-            <h1 className="text-5xl font-bold text-gray-800">
-              Hi, I'm <span className="text-pink-600">Olwethu Mfekayi</span>
+            <h1 className="text-4xl font-bold text-gray-800">
+              Hi, I'm <span className="text-pink-black">Olwethu Mfekayi</span>
             </h1>
 
             <h2 className="text-2xl text-gray-700 font-semibold">
@@ -143,8 +143,8 @@ const Home = () => {
                 }}
               />
               <img
-                src="/omfekayi.jpg"
-                alt="Olwethu Mfekayi"
+                  src="/omfekayi.JPG"
+                  alt="Olwethu Mfekayi"
                 className="relative z-10 rounded-full w-80 h-80 object-cover border-8 border-white shadow-lg"
               />
             </div>
