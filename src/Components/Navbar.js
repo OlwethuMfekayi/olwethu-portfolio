@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { Link, useLocation } from 'react-router-dom';
 import { motion } from 'framer-motion';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
@@ -19,17 +19,23 @@ const Navbar = () => {
 
   const isActive = (path) => location.pathname === path;
 
+  useEffect(() => {
+    document.body.style.overflow = isOpen ? 'hidden' : 'auto';
+    return () => {
+      document.body.style.overflow = 'auto';
+    };
+  }, [isOpen]);
+
   return (
     <>
       <nav className="bg-white/80 backdrop-blur-md shadow-lg fixed w-full z-50">
         <div className="max-w-6xl mx-auto px-4">
           <div className="flex justify-between items-center h-16">
-
             {/* Desktop Menu */}
             <div className="hidden md:flex space-x-8">
               {navItems.map((item) => (
-                <motion.div 
-                  whileHover={{ scale: 1.1, color: "#ff7f50" }} 
+                <motion.div
+                  whileHover={{ scale: 1.1, color: "#ff7f50" }}
                   whileTap={{ scale: 0.9, color: "#ff4500" }}
                   key={item.path}
                 >
@@ -66,12 +72,10 @@ const Navbar = () => {
 
         {/* Mobile Menu */}
         <motion.div
-          initial={{ opacity: 0, y: -20 }}
-          animate={isOpen ? { opacity: 1, y: 0 } : { opacity: 0, y: -20 }}
-          transition={{ duration: 0.3, ease: 'easeInOut' }}
-          className={`md:hidden bg-white overflow-hidden ${
-            isOpen ? 'block' : 'hidden'
-          }`}
+          initial={{ height: 0, opacity: 0 }}
+          animate={isOpen ? { height: 'auto', opacity: 1 } : { height: 0, opacity: 0 }}
+          transition={{ duration: 0.3 }}
+          className={`md:hidden absolute top-16 left-0 w-full bg-white shadow-md z-40 overflow-hidden`}
         >
           <div className="px-4 py-4 space-y-2">
             {navItems.map((item) => (
@@ -97,11 +101,12 @@ const Navbar = () => {
 
       {/* Page Content Wrapper */}
       <div className="pt-16">
-        {/* Wherever your page content is rendered (e.g., <Routes />, or <Outlet />) */}
+        {/* Content goes here */}
       </div>
     </>
   );
 };
 
 export default Navbar;
+
 
