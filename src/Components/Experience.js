@@ -59,7 +59,7 @@ const Experience = () => {
           className="text-4xl font-bold text-center mb-12 text-pink-500"
           variants={itemVariants}
         >
-          Work Experience
+          Experience
         </motion.h1>
 
         {experiences.map((exp, idx) => (
