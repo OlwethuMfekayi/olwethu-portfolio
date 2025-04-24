@@ -72,10 +72,12 @@ const Navbar = () => {
 
         {/* Mobile Menu */}
         <motion.div
-          initial={{ height: 0, opacity: 0 }}
-          animate={isOpen ? { height: 'auto', opacity: 1 } : { height: 0, opacity: 0 }}
+          initial={{ opacity: 0, y: -20 }}
+          animate={isOpen ? { opacity: 1, y: 0 } : { opacity: 0, y: -20 }}
           transition={{ duration: 0.3 }}
-          className={`md:hidden absolute top-16 left-0 w-full bg-white shadow-md z-40 overflow-hidden`}
+          className={`md:hidden fixed top-16 left-0 w-full h-screen bg-white z-40 overflow-y-auto shadow-md transition-all duration-300 ${
+            isOpen ? 'block' : 'hidden'
+          }`}
         >
           <div className="px-4 py-4 space-y-2">
             {navItems.map((item) => (
@@ -101,7 +103,7 @@ const Navbar = () => {
 
       {/* Page Content Wrapper */}
       <div className="pt-16">
-        {/* Content goes here */}
+        {/* Your page content (like <Routes /> or <Outlet />) */}
       </div>
     </>
   );
