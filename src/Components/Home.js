@@ -32,7 +32,42 @@ const Home = () => {
           initial="hidden"
           animate="visible"
         >
-          {/* Left Section */}
+          {/* Picture Section */}
+          <motion.div variants={itemVariants} className="relative">
+            <div className="relative">
+              <motion.div
+                className="absolute top-0 right-0 w-72 h-72 bg-blue-300 rounded-full mix-blend-multiply filter blur-xl opacity-70"
+                animate={{
+                  scale: [1, 1.2, 1],
+                  rotate: [0, 180, 360],
+                }}
+                transition={{
+                  duration: 10,
+                  repeat: Infinity,
+                  repeatType: "reverse"
+                }}
+              />
+              <motion.div
+                className="absolute -bottom-10 -right-10 w-72 h-72 bg-pink-100 rounded-full mix-blend-multiply filter blur-xl opacity-70"
+                animate={{
+                  scale: [1.2, 1, 1.2],
+                  rotate: [360, 180, 0],
+                }}
+                transition={{
+                  duration: 10,
+                  repeat: Infinity,
+                  repeatType: "reverse"
+                }}
+              />
+              <img
+                src="/omfekayi.JPG"
+                alt="Olwethu Mfekayi"
+                className="relative z-10 rounded-full w-48 h-48 sm:w-60 sm:h-60 md:w-80 md:h-80 object-cover border-8 border-white shadow-lg mx-auto md:mx-0"
+              />
+            </div>
+          </motion.div>
+
+          {/* Text Content Section */}
           <motion.div variants={itemVariants} className="space-y-6">
             <motion.div
               className="inline-block bg-blue-100 text-gray-800 px-4 py-2 rounded-full shadow-sm font-medium"
@@ -114,41 +149,6 @@ const Home = () => {
               </motion.a>
             </div>
           </motion.div>
-
-          {/* Right Section */}
-          <motion.div variants={itemVariants} className="relative hidden md:block">
-            <div className="relative">
-              <motion.div
-                className="absolute top-0 right-0 w-72 h-72 bg-blue-300 rounded-full mix-blend-multiply filter blur-xl opacity-70"
-                animate={{
-                  scale: [1, 1.2, 1],
-                  rotate: [0, 180, 360],
-                }}
-                transition={{
-                  duration: 10,
-                  repeat: Infinity,
-                  repeatType: "reverse"
-                }}
-              />
-              <motion.div
-                className="absolute -bottom-10 -right-10 w-72 h-72 bg-pink-100 rounded-full mix-blend-multiply filter blur-xl opacity-70"
-                animate={{
-                  scale: [1.2, 1, 1.2],
-                  rotate: [360, 180, 0],
-                }}
-                transition={{
-                  duration: 10,
-                  repeat: Infinity,
-                  repeatType: "reverse"
-                }}
-              />
-              <img
-                  src="/omfekayi.JPG"
-                  alt="Olwethu Mfekayi"
-                className="relative z-10 rounded-full w-80 h-80 object-cover border-8 border-white shadow-lg"
-              />
-            </div>
-          </motion.div>
         </motion.div>
       </div>
     </div>
@@ -156,6 +156,5 @@ const Home = () => {
 };
 
 export default Home;
-
 
 
