@@ -83,7 +83,7 @@ const Home = () => {
             {/* Social Icons */}
             <div className="flex gap-4 mt-6">
               <motion.a
-                href="https://github.com/yourusername"
+                href="https://github.com/OlwethuMfekayi"
                 target="_blank"
                 rel="noopener noreferrer"
                 whileHover={{ scale: 1.1 }}
