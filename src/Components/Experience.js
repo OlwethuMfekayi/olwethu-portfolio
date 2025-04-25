@@ -17,7 +17,7 @@ const Experience = () => {
       skills: ["Teaching", "Mentoring", "Technical Support", "Curriculum Design"]
     },
     {
-      title: "Data Analytics Scholarship Trainee",
+      title: "Data Analytics Trainee (Scholarship Program)",
       company: "Digitaley Drive",
       period: "April 2025 – Present",
       responsibilities: [
