@@ -25,11 +25,11 @@ const Contact = () => {
   ];
 
   return (
-    <div className="min-h-screen py-16 px-6 flex items-center justify-center">
-      <div className="max-w-2xl  w-full">
-        <h1 className="text-4xl font-bold text-center text-gray-800 mb-12">Contact Me</h1>
+    <div className="min-h-screen pt-12 pb-4 px-6 flex items-start justify-center">
+      <div className="max-w-2xl w-full">
+        <h1 className="text-4xl font-bold text-center text-pink-500 mb-12">Contact Me</h1>
 
-        <div className="space-y-6 ">
+        <div className="space-y-6">
           {contactInfo.map((item, index) => (
             <div
               key={index}
@@ -39,13 +39,13 @@ const Contact = () => {
                 <FontAwesomeIcon icon={item.icon} size="sm" />
               </div>
               <div>
-                <h3 className=" font-bold">{item.title}</h3>
+                <h3 className="font-bold">{item.title}</h3>
                 {item.link ? (
                   <a href={item.link} className="text-sm font-bold hover:underline">
                     {item.details}
                   </a>
                 ) : (
-                  <p className="text-sm font-bold ">{item.details}</p>
+                  <p className="text-sm font-bold">{item.details}</p>
                 )}
               </div>
             </div>
