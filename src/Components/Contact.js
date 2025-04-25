@@ -1,97 +1,61 @@
 import React from 'react';
-import { motion } from 'framer-motion';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faEnvelope, faPhone, faLocationDot } from '@fortawesome/free-solid-svg-icons';
 
 const Contact = () => {
-  const containerVariants = {
-    hidden: { opacity: 0 },
-    visible: {
-      opacity: 1,
-      transition: {
-        staggerChildren: 0.2,
-        delayChildren: 0.3
-      }
-    }
-  };
-
-  const itemVariants = {
-    hidden: { opacity: 0, y: 30 },
-    visible: {
-      opacity: 1,
-      y: 0,
-      transition: { duration: 0.5, ease: 'easeOut' }
-    }
-  };
-
   const contactInfo = [
     {
       icon: faEnvelope,
       title: 'Email',
-      details: 'olwethuasande54@gmail.com'
+      details: 'olwethuasande54@gmail.com',
+      link: 'mailto:olwethuasande54@gmail.com'
     },
     {
       icon: faPhone,
       title: 'Phone',
-      details: '+27 83 520 7083'
+      details: '+27 83 520 7083',
+      link: 'tel:+27835207083'
     },
     {
       icon: faLocationDot,
       title: 'Location',
-      details: 'Richards Bay, South Africa'
+      details: 'Richards Bay, South Africa',
+      link: ''
     }
   ];
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-blue-200 via-pink-200 to-gray-100 py-16 px-4 sm:px-6 flex items-center justify-center">
-      <motion.div
-        className="w-full max-w-3xl"
-        variants={containerVariants}
-        initial="hidden"
-        animate="visible"
-      >
-        <motion.h1
-          className="text-4xl sm:text-5xl font-extrabold text-center mb-10 text-pink-500"
-          variants={itemVariants}
-        >
-          Get In Touch
-        </motion.h1>
+    <div className="min-h-screen py-16 px-6 flex items-center justify-center">
+      <div className="max-w-2xl  w-full">
+        <h1 className="text-4xl font-bold text-center text-gray-800 mb-12">Contact Me</h1>
 
-        <motion.div variants={itemVariants}>
-          <div className="bg-white rounded-3xl shadow-xl p-6 sm:p-10 hover:shadow-2xl transition-all duration-300">
-            <h2 className="text-xl sm:text-2xl font-semibold mb-8 text-pink-500 text-center">
-              Contact Information
-            </h2>
-            <div className="grid sm:grid-cols-3 gap-6">
-              {contactInfo.map((item, index) => (
-                <motion.div
-                  key={index}
-                  variants={itemVariants}
-                  className="flex flex-col items-center text-center p-5 rounded-xl bg-white hover:bg-pink-50 transition-all duration-300 cursor-pointer group"
-                  whileHover={{ scale: 1.03 }}
-                >
-                  <div className="bg-pink-500 text-white p-4 mb-4 rounded-full shadow-md transition-transform duration-300 group-hover:rotate-12">
-                    <FontAwesomeIcon icon={item.icon} size="lg" />
-                  </div>
-                  <h3 className="font-semibold text-pink-600 text-lg mb-1">{item.title}</h3>
-                  {item.title === 'Email' ? (
-                    <a
-                      href={`mailto:${item.details}`}
-                      className="text-gray-700 hover:underline break-words text-sm sm:text-base"
-                    >
-                      {item.details}
-                    </a>
-                  ) : (
-                    <p className="text-gray-700 break-words text-sm sm:text-base">{item.details}</p>
-                  )}
-                </motion.div>
-              ))}
+        <div className="space-y-6 ">
+          {contactInfo.map((item, index) => (
+            <div
+              key={index}
+              className="flex items-center p-5 border border-gray-200 rounded-lg shadow-sm hover:shadow-md transition-all"
+            >
+              <div className="bg-gray-100 text-pink-500 p-3 rounded-full mr-4">
+                <FontAwesomeIcon icon={item.icon} size="sm" />
+              </div>
+              <div>
+                <h3 className=" font-bold">{item.title}</h3>
+                {item.link ? (
+                  <a href={item.link} className="text-sm font-bold hover:underline">
+                    {item.details}
+                  </a>
+                ) : (
+                  <p className="text-sm font-bold ">{item.details}</p>
+                )}
+              </div>
             </div>
-          </div>
-        </motion.div>
-      </motion.div>
+          ))}
+        </div>
+      </div>
     </div>
   );
 };
 
 export default Contact;
+
+

@@ -85,9 +85,9 @@ const Home = () => {
             </h2>
 
             <p className="text-gray-700 text-lg leading-relaxed">
-              I'm a Business Information Technology graduate passionate about front-end development,
-              data analysis, and the latest in tech. I build interactive and insightful digital experiences
-              by blending code with creativity. Let’s build something amazing! 🚀
+            I’m a Business Information Technology graduate with a strong interest in front-end development,
+             data analysis, and emerging technologies. I specialize in creating engaging and functional digital 
+             experiences that combine creativity with technical skill.
             </p>
 
             {/* Buttons */}
